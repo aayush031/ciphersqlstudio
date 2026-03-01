@@ -1,0 +1,79 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.navbar {
+    width: 100%;
+    background-color: $secondary-color;
+    color: white;
+    padding: $spacing-sm $spacing-md;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    /* =========================
+     CONTAINER
+  ========================== */
+    &__container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    /* =========================
+     LOGO
+  ========================== */
+    &__logo {
+        font-size: $font-lg;
+        font-weight: 600;
+        color: white;
+        text-decoration: none;
+    }
+
+    /* =========================
+     NAV LINKS
+  ========================== */
+    &__links {
+        display: none; // hidden on mobile
+        gap: $spacing-md;
+
+        a {
+            color: white;
+            text-decoration: none;
+            font-size: $font-sm;
+            transition: opacity 0.2s ease;
+
+            &:hover {
+                opacity: 0.8;
+            }
+        }
+    }
+
+    /* =========================
+     MOBILE MENU BUTTON
+  ========================== */
+    &__menu-btn {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.2rem;
+        cursor: pointer;
+    }
+
+    /* =========================
+     TABLET & ABOVE
+  ========================== */
+    @include respond(tablet) {
+        &__links {
+            display: flex;
+        }
+
+        &__menu-btn {
+            display: none;
+        }
+    }
+}

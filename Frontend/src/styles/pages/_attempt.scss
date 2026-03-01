@@ -1,0 +1,108 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.attempt {
+    padding: $spacing-md;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    /* ========================
+     QUESTION SECTION
+  ========================= */
+    &__question {
+        background-color: white;
+        padding: $spacing-md;
+        border-radius: $border-radius-md;
+        border: 1px solid $border-color;
+
+        h2 {
+            font-size: $font-lg;
+            margin-bottom: $spacing-sm;
+            color: $text-color;
+        }
+
+        p {
+            font-size: $font-sm;
+            color: $text-light;
+        }
+    }
+
+    /* ========================
+     EDITOR SECTION
+  ========================= */
+    &__editor {
+        display: flex;
+        flex-direction: column;
+        gap: $spacing-md;
+    }
+
+    &__buttons {
+        display: flex;
+        gap: $spacing-sm;
+
+        button {
+            flex: 1;
+            padding: $spacing-sm;
+            font-size: $font-sm;
+            border: none;
+            border-radius: $border-radius-sm;
+            cursor: pointer;
+            transition: background 0.2s ease;
+
+            &:first-child {
+                background-color: $primary-color;
+                color: white;
+
+                &:hover {
+                    background-color: $primary-hover;
+                }
+            }
+
+            &:last-child {
+                background-color: $secondary-color;
+                color: white;
+
+                &:hover {
+                    opacity: 0.9;
+                }
+            }
+
+            &:disabled {
+                opacity: 0.6;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    /* ========================
+     ERROR MESSAGE
+  ========================= */
+    &__error {
+        padding: $spacing-sm;
+        background-color: #fee2e2;
+        color: $error-color;
+        border-radius: $border-radius-sm;
+        font-size: $font-sm;
+    }
+
+    /* ========================
+     RESPONSIVE LAYOUT
+  ========================= */
+
+    @include respond(laptop) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        align-items: start;
+
+        &__question {
+            grid-column: 1 / 2;
+        }
+
+        &__editor {
+            grid-column: 2 / 3;
+        }
+    }
+}

@@ -1,0 +1,13 @@
+@use "../base/variables" as *;
+@use "../base/mixins" as *;
+
+.assignment-list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+
+    @include respond(laptop) {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+}

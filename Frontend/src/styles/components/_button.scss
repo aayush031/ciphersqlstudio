@@ -1,0 +1,37 @@
+@use "../base/variables" as *;
+
+.button {
+    padding: $spacing-sm $spacing-md;
+    border: none;
+    border-radius: $border-radius-sm;
+    font-size: $font-sm;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: $spacing-xs;
+
+    &--primary {
+        background-color: $primary-color;
+        color: white;
+
+        &:hover {
+            background-color: $primary-hover;
+        }
+    }
+
+    &--secondary {
+        background-color: $secondary-color;
+        color: white;
+
+        &:hover {
+            opacity: 0.9;
+        }
+    }
+
+    &:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+}
